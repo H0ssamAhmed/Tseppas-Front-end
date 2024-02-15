@@ -2,26 +2,247 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap'); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+body {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+/* loading Style code */
+.triple-circle {
+
+
+  span {
+    position: relative;
+    top: -2px;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 6px solid transparent;
+    border-top-color: initial;
+    border-bottom-color: initial;
+    border-radius: 50px;
+    animation: spin 2s linear infinite;
+
+    &:before {
+      content: "";
+      position: absolute;
+      border: 6px solid transparent;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      right: 6px;
+      border-radius: 100%;
+      border-top-color: initial;
+      transform: rotate(-90deg);
+      border-bottom-color: initial;
+      animation: spin 2s linear infinite;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      border: 6px solid transparent;
+      top: 13px;
+      bottom: 18px;
+      left: 13px;
+      right: 18px;
+      border-radius: 100%;
+      border-left-color: initial;
+      border-right-color: initial;
+
+      animation: spin 2s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+
+.wrapper {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 400px;
+  height: 400px;
+}
+
+.loader-outer {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  border-bottom: 1px solid #303030;
+  background: #151515;
+  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 1;
+
+  .loader-inner {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    width: auto;
+    height: 58px;
+    color: crimson;
+    text-align: center;
+    text-shadow: 0 0 20px crimson;
+    font-size: 60px;
+    z-index: 2;
+    animation: load 2s infinite linear;
+  }
+}
+
+.animationH1 {
+  position: absolute;
+  margin: auto;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 85px;
+  height: 40px;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 0 20px crimson;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  font-weight: lighter;
+  color: crimson;
+
+  span {
+    display: none;
+  }
+
+  &::after {
+    animation: txt 1s infinite;
+    content: "";
+  }
+}
+
+@keyframes load {
+  0% {
+    left: -100px;
+  }
+
+  100% {
+    left: 220px;
+  }
+}
+
+@keyframes txt {
+  0% {
+    content: "LOADING";
+  }
+
+  35% {
+    content: "LOADING.";
+  }
+
+  65% {
+    content: "LOADING..";
+  }
+
+  100% {
+    content: "LOADING...";
+  }
 }
