@@ -10,7 +10,11 @@ const ProductsSection = () => {
   const [storedProducts, setStoredProducts] = useState([]);
 
   const getProducts_ = () => {
-    ProductApi.getProducts().then((res) => setStoredProducts(res?.data.data));
+    ProductApi.getProducts().then((res) => {
+      console.log(window.location.origin);
+      console.log(res.config.baseURL);
+      setStoredProducts(res?.data.data)
+    });
   };
 
   useEffect(() => {
