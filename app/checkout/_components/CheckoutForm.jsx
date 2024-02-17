@@ -110,7 +110,7 @@ const CheckoutForm = ({ amount }) => {
             clientSecret,
             elements,
             confirmParams: {
-                return_url: "http://localhost:3000/payement-confirmed",
+                return_url: "http://tseppas-front-end.vercel.app/payement-confirmed",
             },
         })
 
