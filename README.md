@@ -1,8 +1,5 @@
-# Tseppas
-
-## Description
-
-E-commerce for oriental desserts
+# Tseppas E-commerce for oriental desserts
+## (Note: Demo currently inactive due to API issue. Backend was powered by Strapi.)
 
 ## Features
 
